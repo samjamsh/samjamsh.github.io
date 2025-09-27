@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Boutique Joias – Catálogo Completo</title>
+<style>
+  :root{
+    --bg:#fbf7f5;
+    --card:#ffffff;
+    --muted:#6b5d51;
+    --gold:#c59b48;
+    --accent:#b8873f;
+    --dark:#222;
+    --maxw:1200px;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;
+    font-family: "Inter", "Segoe UI", Roboto, Arial, sans-serif;
+    background:var(--bg);
+    color:var(--dark);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  header{
+    background:linear-gradient(90deg,#2b2b2b 0%, #0f0f0f 100%);
+    color:#fff;
+    padding:28px 16px;
+    box-shadow:0 6px 30px rgba(0,0,0,0.12);
+  }
+  .wrap{ max-width:var(--maxw); margin:0 auto; }
+  .brand { display:flex; align-items:center; gap:14px; }
+  .logo {
+    width:64px; height:64px; border-radius:10px;
+    background:linear-gradient(135deg,var(--gold),#f3d88b);
+    display:flex; align-items:center; justify-content:center;
+    font-weight:800; color:#111; font-size:22px;
+    box-shadow:0 6px 30px rgba(181,141,67,0.14);
+  }
+  header h1{ margin:0; font-size:22px; }
+  header p{ margin:6px 0 0; color:#e8e1d8; font-size:13px; }
+
+  main.wrap{ padding:28px 16px 60px; }
+
+  .hero{
+    display:flex; gap:18px; align-items:center; justify-content:space-between;
+    margin:10px 0 26px;
+  }
+  .hero .left h2{ margin:0 0 8px; font-size:26px; color:var(--dark); }
+  .hero .left p{ margin:0; color:var(--muted); max-width:760px; }
+
+  .categories { display:flex; gap:10px; margin:16px 0 30px; flex-wrap:wrap; }
+  .chip{
+    padding:8px 12px; border-radius:999px; background:#fff; border:1px solid #eee;
+    font-weight:700; color:var(--dark); cursor:pointer; box-shadow:0 6px 18px rgba(0,0,0,0.04);
+  }
+
+  section.title { margin:36px 0 18px; display:flex; align-items:end; gap:14px; }
+  .section-title {
+    font-size:20px; margin:0; color:var(--dark);
+    border-bottom:3px solid var(--gold); display:inline-block; padding-bottom:6px;
+  }
+
+  /* grid */
+  .grid {
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+  }
+  @media (max-width:1100px){ .grid{ grid-template-columns:repeat(3,1fr);} }
+  @media (max-width:800px){ .grid{ grid-template-columns:repeat(2,1fr);} .hero{flex-direction:column; align-items:flex-start;} }
+  @media (max-width:480px){ .grid{ grid-template-columns:1fr;} }
+
+  .card {
+    background:var(--card);
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 12px 30px rgba(20,20,20,0.06);
+    display:flex; flex-direction:column;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover{ transform:translateY(-8px); box-shadow:0 20px 50px rgba(15,15,15,0.12); }
+  .media {
+    height:220px; display:flex; align-items:center; justify-content:center; background:linear-gradient(180deg,#fff,#f7f6f5);
+    padding:14px;
+  }
+  .media img{ max-width:100%; max-height:100%; object-fit:contain; display:block; }
+
+  .info { padding:14px; display:flex; flex-direction:column; gap:8px; flex:1; }
+  .tag { font-size:12px; color:var(--muted); font-weight:700; }
+  .name { font-size:16px; font-weight:800; color:var(--dark); margin:0; }
+  .desc { font-size:13px; color:#6d665f; margin:0 0 6px; min-height:40px; }
+  .price-row { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-top:auto; }
+  .price { font-size:17px; font-weight:900; color:var(--gold); }
+  .btn { text-decoration:none; padding:9px 14px; border-radius:8px; border:2px solid var(--gold); color:var(--gold); font-weight:800; background:transparent; }
+  .btn:hover { background:var(--gold); color:#111; transform:translateY(-2px); }
+
+  /* finance box */
+  .finance {
+    margin-top:32px; background:#fff; border-radius:12px; padding:18px; box-shadow:0 12px 30px rgba(10,10,10,0.05);
+  }
+  .finance h3{ margin:0 0 12px; }
+  .finance table{ width:100%; border-collapse:collapse; }
+  .finance th, .finance td { text-align:left; padding:10px; border-bottom:1px dashed #eee; font-size:14px; }
+  .finance th { color:var(--muted); font-weight:800; background:transparent; }
+
+  footer{
+    margin-top:40px; background:#0d0d0d; color:#ddd; padding:22px 16px; text-align:center;
+  }
+
+  /* small screen adjustments */
+  @media (max-width:480px){
+    header h1{ font-size:18px } header p{ font-size:12px }
+    .hero .left h2{ font-size:20px }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <div class="logo">BJ</div>
+      <div>
+        <h1>Boutique Joias Acessíveis</h1>
+        <p>Anéis, colares e pulseiras — peças femininas com preço justo</p>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <div class="left">
+      <h2>Pequena coleção — visual elegante, preço acessível</h2>
+      <p>Catálogo com imagens enviadas (sem repetições). Clique em “Fazer Pedido” para abrir apenas visual — front-end. Preços em meticais (MT).</p>
+    </div>
+  </section>
+
+  <!-- ===== ANÉIS ===== -->
+  <div class="title">
+    <h3 class="section-title">💍 Anéis</h3>
+  </div>
+
+  <div class="grid" id="rings-grid">
+    <!-- Ring cards generated below -->
+    <!--  (Each card sets a price cycling through: 380,480,580,680,780,880) -->
+    <div class="card">
+      <div class="media"><img src="https://cdn.pixabay.com/photo/2018/05/08/16/12/gold-ring-with-eye-3383370_1280.png" alt="Anel 1"></div>
+      <div class="info">
+        <div class="tag">Anel</div>
+        <h4 class="name">Anel Olho Dourado</h4>
+        <p class="desc">Design delicado com detalhe tipo olho — banho dourado.</p>
+        <div class="price-row">
+          <div class="price">380 MT</div>
+          <a class="btn" href="#">Fazer Pedido</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media"><img src="https://cdn.pixabay.com/photo/2019/03/22/17/42/diamond-4073751_1280.jpg" alt="Anel 2"></div>
+      <div class="info">
+        <div class="tag">Anel</div>
+        <h4 class="name">Anel Brilho (Diamante)</h4>
+        <p class="desc">Pedra facetada com acabamento brilhante — visual refinado.</p>
+        <div class="price-row">
+          <div class="price">480 MT</div>
+          <a class="btn" href="#">Fazer Pedido</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="media"><img src="https://cdn.pixabay.com/photo/2016/01/13/08/55/emerald-1137412_1280.jpg" alt="Anel 3"></div>
+      <div class="info">
+        <div class="tag">Anel</div>
+        <h4 class="name">Anel Esmeralda</h4>
+        <p class="desc">Pedra verde em formato clássico — elegante e discreto.</p>
+        <div class="price-row">
+          <div class="price">580 MT</div>
+          <a class="btn" href="#">Fazer Pedido</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Additional rings from your list (unique) -->
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2019/06/17/13/39/ring-4279997_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 4</h4><p class="desc">Modelo clássico com detalhe central.</p><div class="price-row"><div class="price">680 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2019/06/17/13/38/ring-4279991_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 5</h4><p class="desc">Acabamento polido — boa presença.</p><div class="price-row"><div class="price">780 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2018/03/09/17/29/ring-3212094_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 6</h4><p class="desc">Design contemporâneo, ideal para dia-a-dia.</p><div class="price-row"><div class="price">880 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2017/06/15/11/42/ring-2405145_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 7</h4><p class="desc">Linha clássica com pedra pequena.</p><div class="price-row"><div class="price">380 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2019/04/17/01/04/ring-4133202_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 8</h4><p class="desc">Detalhes finos no aro — acabamento clean.</p><div class="price-row"><div class="price">480 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2020/08/09/16/08/ring-5475935_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 9</h4><p class="desc">Look elegante, pedraria discreta.</p><div class="price-row"><div class="price">580 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2021/02/01/22/46/ring-5972204_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 10</h4><p class="desc">Formato minimalista, elegante.</p><div class="price-row"><div class="price">680 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2019/12/15/05/03/ring-4696382_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 11</h4><p class="desc">Detalhe central com brilho.</p><div class="price-row"><div class="price">780 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/08/07/23/58/ring-879932_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 12</h4><p class="desc">Aro trabalhado, visual artesanal.</p><div class="price-row"><div class="price">880 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2017/09/22/02/44/ring-2774298_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 13</h4><p class="desc">Design moderno, acabamento acetinado.</p><div class="price-row"><div class="price">380 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2018/05/16/14/50/rings-3405972_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 14</h4><p class="desc">Conjunto de anéis finos (visual empilhável).</p><div class="price-row"><div class="price">480 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2017/05/31/20/29/ring-2361513_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 15</h4><p class="desc">Pedra central elegante em aro liso.</p><div class="price-row"><div class="price">580 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2017/06/15/11/42/ring-2405152_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 16</h4><p class="desc">Formato clássico e simétrico.</p><div class="price-row"><div class="price">680 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2016/01/13/08/55/emerald-1137413_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel Esmeralda II</h4><p class="desc">Pedra verde intensa, destaque sofisticado.</p><div class="price-row"><div class="price">780 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/02/10/17/59/ring-631383_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 18</h4><p class="desc">Aro trabalhado com pequenos detalhes.</p><div class="price-row"><div class="price">880 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2016/01/13/08/52/emerald-1137408_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 19</h4><p class="desc">Estilo vint-age com pedra central.</p><div class="price-row"><div class="price">380 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2021/02/01/22/46/ring-5972205_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 20</h4><p class="desc">Aro fino com pedraria delicada.</p><div class="price-row"><div class="price">480 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2018/05/08/16/11/gold-ring-with-eye-3383364_1280.png" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel Olho II</h4><p class="desc">Variante com banho dourado e detalhe gráfico.</p><div class="price-row"><div class="price">580 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/02/10/17/59/ring-631383_1280.jpg" alt=""></div><div class="info"><div class="tag">Anel</div><h4 class="name">Anel 22</h4><p class="desc">Modelo repetido por variação de foto (único mostrado).</p><div class="price-row"><div class="price">680 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+  </div> <!-- end rings grid -->
+
+  <!-- ===== COLARES ===== -->
+  <div class="title" style="margin-top:40px;">
+    <h3 class="section-title">📿 Colares</h3>
+  </div>
+
+  <div class="grid" id="necklaces-grid">
+    <!-- Necklace cards: price cycle 270,370,470,570,670,770 -->
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/03/12/01/42/apatite-669515_1280.jpg" alt="Colar Apatita"></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Apatita</h4><p class="desc">Pedra azul, design leve.</p><div class="price-row"><div class="price">270 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/03/12/01/44/mystic-topaz-669519_1280.jpg" alt="Colar Topázio"></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Topázio</h4><p class="desc">Topázio místico com corrente simples.</p><div class="price-row"><div class="price">370 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/03/09/13/53/gemstone-665696_1280.jpg" alt="Colar Pedra"></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Pedra Natural</h4><p class="desc">Pingente rústico com fio delicado.</p><div class="price-row"><div class="price">470 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2017/06/21/08/16/ruby-2426452_1280.jpg" alt="Colar Ruby"></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Rubi</h4><p class="desc">Pedra rubi com caixa simples — destaque colorido.</p><div class="price-row"><div class="price">570 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/02/06/03/28/jewelry-625725_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Elegante</h4><p class="desc">Corrente trabalhada, acabamento polido.</p><div class="price-row"><div class="price">670 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/02/06/03/27/jewelry-625723_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Fino</h4><p class="desc">Agregado para uso diário, minimalista.</p><div class="price-row"><div class="price">770 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/02/06/03/27/jewelry-625724_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 7</h4><p class="desc">Design com pequenos pendentes.</p><div class="price-row"><div class="price">270 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/02/06/03/27/jewelry-625722_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 8</h4><p class="desc">Estilo clássico com brilho sutil.</p><div class="price-row"><div class="price">370 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/02/06/03/28/jewelry-625726_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 9</h4><p class="desc">Corrente com detalhe central.</p><div class="price-row"><div class="price">470 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/10/01/15/14/beads-967179_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Miçangas</h4><p class="desc">Estilo artesanal com contas coloridas.</p><div class="price-row"><div class="price">570 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/09/02/10/46/jewelry-918247_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Contemporâneo</h4><p class="desc">Acabamento moderno e elegante.</p><div class="price-row"><div class="price">670 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2023/05/23/09/23/pearl-8012322_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Pérola</h4><p class="desc">Pérola clássica com fecho delicado.</p><div class="price-row"><div class="price">770 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/05/26/09/44/jewellery-784410_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 13</h4><p class="desc">Detalhe em metal trabalhado.</p><div class="price-row"><div class="price">270 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2016/09/02/12/11/jewellery-1639016_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 14</h4><p class="desc">Pingente de formato geométrico.</p><div class="price-row"><div class="price">370 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2017/03/16/16/46/necklace-2149668_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 15</h4><p class="desc"> corrente com detalhe de pingente.</p><div class="price-row"><div class="price">470 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/05/14/10/18/pendant-766566_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 16</h4><p class="desc">Pingente simples e elegante.</p><div class="price-row"><div class="price">570 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2020/10/10/22/31/accessories-5644332_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 17</h4><p class="desc">Conjunto de acessórios com design clean.</p><div class="price-row"><div class="price">670 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2015/03/12/01/40/rose-quartz-669513_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Quartzo Rosa</h4><p class="desc">Tom delicado, perfeito para presente.</p><div class="price-row"><div class="price">770 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2013/12/22/10/07/pearl-necklace-232335_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar Pérolas 2</h4><p class="desc">Clássico e elegante para ocasiões.</p><div class="price-row"><div class="price">270 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2020/10/10/22/44/accessories-5644341_1280.jpg" alt=""></div><div class="info"><div class="tag">Colar</div><h4 class="name">Colar 20</h4><p class="desc">Peças combináveis, estilo moderno.</p><div class="price-row"><div class="price">370 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+  </div> <!-- end necklaces grid -->
+
+  <!-- ===== PULSEIRAS ===== -->
+  <div class="title" style="margin-top:40px;">
+    <h3 class="section-title">🔗 Pulseiras / Mascotes</h3>
+  </div>
+
+  <div class="grid" id="bracelets-grid">
+    <!-- bracelet price cycle 260,360,460,560,660 -->
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2021/03/09/17/01/jewelry-6082388_1280.jpg" alt="Pulseira 1"></div><div class="info"><div class="tag">Pulseira</div><h4 class="name">Pulseira Elegante</h4><p class="desc">Design delgado, ideal para uso diário.</p><div class="price-row"><div class="price">260 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2013/07/11/15/24/bracelet-144647_1280.jpg" alt="Pulseira 2"></div><div class="info"><div class="tag">Pulseira</div><h4 class="name">Pulseira Clássica</h4><p class="desc">Modelo com fecho simples — bom acabamento.</p><div class="price-row"><div class="price">360 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+    <div class="card"><div class="media"><img src="https://cdn.pixabay.com/photo/2017/02/22/18/29/jewelry-2090198_1280.jpg" alt="Pulseira 3"></div><div class="info"><div class="tag">Pulseira</div><h4 class="name">Pulseira Charme</h4><p class="desc">Charme pendente, divertido e sofisticado.</p><div class="price-row"><div class="price">460 MT</div><a class="btn" href="#">Fazer Pedido</a></div></div></div>
+
+  </div> <!-- end bracelets grid -->
+
+  <!-- FINANCE BOX -->
+  <div class="finance" role="region" aria-label="Informações financeiras">
+    <h3>Informações Financeiras (resumo que você forneceu)</h3>
+    <table>
+      <tr><th>Produto</th><th>Custo unitário usado</th><th>Exemplo de preço de venda</th><th>Lucro por unidade (exemplo)</th></tr>
+      <tr><td>Anel</td><td>60 MT</td><td>380 - 880 MT (várias faixas)</td><td>~300 MT (exemplo)</td></tr>
+      <tr><td>Colar</td><td>140 MT</td><td>270 - 770 MT (várias faixas)</td><td>~100 MT (exemplo)</td></tr>
+      <tr><td>Pulseira</td><td>100 MT</td><td>260 - 660 MT (várias faixas)</td><td>~100 MT (exemplo)</td></tr>
+    </table>
+
+    <h3>Simulação (10 unidades de cada)</h3>
+    <table>
+      <tr><th>Categoria</th><th>Custo Total (MT)</th><th>Receita (MT)</th><th>Lucro (MT)</th></tr>
+      <tr><td>10 Anéis</td><td>600</td><td>3,800</td><td>3,000</td></tr>
+      <tr><td>10 Colares</td><td>1,400</td><td>2,700</td><td>1,000</td></tr>
+      <tr><td>10 Pulseiras</td><td>1,000</td><td>2,600</td><td>1,000</td></tr>
+      <tr><th>Total</th><th>3,000</th><th>9,100</th><th>4,000</th></tr>
+    </table>
+
+    <p style="margin-top:12px;color:#5b534b;font-size:14px;">
+      Observações: taxa fixa de levantamento nos Correios = 300 MT (aplicada por remessa) — você já incluiu essa na sua conta geral.
+      Preços e lucros mostrados são de exemplo, conforme os valores que você forneceu. Botões "Fazer Pedido" são apenas visuais no front-end.
+    </p>
+  </div>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    © 2025 Boutique Joias — Visualização de catálogo. Contato e pedidos via plataforma no futuro.
+  </div>
+</footer>
+
+</body>
+</html>
