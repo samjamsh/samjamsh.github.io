@@ -297,5 +297,33 @@
   </div>
 </footer>
 
+<!-- === SCRIPT ADICIONADO: ação "Fazer Pedido" que abre WhatsApp com mensagem automática === -->
+<script>
+document.addEventListener('click', function(event) {
+  const btn = event.target.closest('.btn');
+  if (!btn) return;
+
+  event.preventDefault();
+
+  const card = btn.closest('.card');
+  if (!card) return;
+
+  const nameEl = card.querySelector('.name') || card.querySelector('h4') || card.querySelector('h3');
+  const priceEl = card.querySelector('.price') || card.querySelector('.price-row .price') || card.querySelector('div.price');
+  const imgEl = card.querySelector('.media img');
+
+  const nomeProduto = nameEl ? nameEl.innerText.trim() : '';
+  const precoProduto = priceEl ? priceEl.innerText.trim() : '';
+  const linkImagem = imgEl ? imgEl.src : '';
+
+  const mensagem = `Olá, saudações! Estou interessado no ${nomeProduto} que custa ${precoProduto}. Imagem do produto: ${linkImagem}`;
+
+  const numero = '258856217611';
+  const url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(mensagem);
+
+  window.open(url, '_blank');
+});
+</script>
+
 </body>
 </html>
